@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Health And Wellness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0d1117;
+            color: #e6edf3;
+        }
+        header {
+            background-color: #161b22;
+            color: #d4af37; /* Gold */
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #30363d;
+        }
+        /* Hamburger Menu Icon */
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #d4af37;
+        }
+        /* Sidebar Drawer */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 101;
+            top: 0;
+            left: 0;
+            background-color: #161b22;
+            overflow-x: hidden;
+            transition: 0.3s;
+            padding-top: 60px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+        }
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #e6edf3;
+            display: block;
+            transition: 0.2s;
+            border-bottom: 1px solid #30363d;
+            cursor: pointer;
+        }
+        .sidebar a:hover {
+            background-color: #21262d;
+            color: #d4af37;
+        }
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: #d4af37;
+        }
+        /* Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 100;
+        }
+        /* Content Sections */
+        .container {
+            padding: 15px;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .card {
+            background: #161b22;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #d4af37; /* Gold accent */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border-top: 1px solid #30363d;
+            border-right: 1px solid #30363d;
+            border-bottom: 1px solid #30363d;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #d4af37;
+        }
+        .card p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: #c9d1d9;
+        }
+        /* Profile Info Styling */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-header h2 {
+            margin: 10px 0 5px 0;
+            color: #d4af37;
+        }
+        .profile-header p {
+            color: #8b949e;
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="menu-icon" onclick="toggleSidebar()">&#9776;</button>
+        <span>Daily Health And Wellness</span>
+        <div style="width: 24px;"></div>
+    </header>
+
+    <!-- SIDEBAR NAVIGATION DRAWER -->
+    <div id="mySidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">&times;</button>
+        <a onclick="switchTab('home')">🏠 Health Tips</a>
+        <a onclick="switchTab('profile')">👤 Profile & Bio</a>
+        <a onclick="switchTab('contact')">📞 Contact Us</a>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="container">
+        <!-- HOME / TIPS SECTION -->
+        <div id="home" class="section active">
+            
+            <!-- Maternal Health -->
+            <div class="card">
+                <h3>Did You Know? (Maternal Health)</h3>
+                <p>Missing Antenatal Care (ANC) visits can be very dangerous for both the mother and the unborn baby. These regular check-ups help doctors catch hidden health issues like high blood pressure or infections early before they become serious emergencies.</p>
+                <p>Without routine visits and proper guidance, critical signs of pregnancy complications might be missed. Staying consistent with your clinic appointments ensures a safe pregnancy journey and a healthy delivery.</p>
+            </div>
+
+            <!-- Children Health -->
+            <div class="card">
+                <h3>Did You Know? (Child Health)</h3>
+                <p>Exclusive breastfeeding for the first 6 months of a baby's life is far more beneficial than introducing other foods early. Breast milk provides all the exact nutrients, water, and antibodies a baby needs to grow strong and fight off dangerous common illnesses.</p>
+                <p>Protecting a baby's fragile digestive system with pure breast milk during this window prevents severe infections like diarrhea. It also builds a deep, lifelong foundation for the child's overall physical and mental development.</p>
+            </div>
+
+            <!-- Youth Wellness -->
+            <div class="card">
+                <h3>Did You Know? (Youth Wellness)</h3>
+                <p>Drug and substance use is deeply harmful to physical and mental health, especially during the teenage and youth years. It alters brain development, ruins emotional stability, and dramatically increases the risk of long-term addiction and mental health struggles.</p>
+                <p>Choosing a drug-free life safeguards your future, your focus, and your personal goals. Protecting your mind and body early on ensures you stay resilient against peer pressure and ready to lead tomorrow.</p>
+            </div>
+
+            <!-- Elderly Care -->
+            <div class="card">
+                <h3>Did You Know? (Elderly Care)</h3>
+                <p>Regular physical exercise is wonderfully beneficial for older adults because it keeps joints flexible and muscles strong. Staying active prevents dangerous falls, lowers blood pressure, and keeps chronic conditions like heart disease and diabetes well-managed.</p>
+                <p>Even light daily movements, like steady walking or gentle stretching, boost mood and improve brain health. Exercise ensures that aging remains an active, energetic, and independent phase of life.</p>
+            </div>
+
+        </div>
+
+        <!-- PROFILE / ABOUT SECTION -->
+        <div id="profile" class="section">
+            <div class="profile-header">
+                <h2>Amos Korir</h2>
+                <p>Nursing Student & Author</p>
+            </div>
+            <div class="card">
+                <h3>About Me</h3>
+                <p>Hello! I am Amos Korir, a nursing student at Jordan Hospital Medical College in Kenya and a health science student at the University of the People in Pasadena. I am deeply passionate about bridging healthcare education and community empowerment.</p>
+            </div>
+            <div class="card">
+                <h3>Published Work</h3>
+                <p>I am the proud author of the book <strong>"The Future Teen"</strong> by Amos Korir, which is dedicated to empowering youth, building resilience, and inspiring the leaders of tomorrow.</p>
+            </div>
+        </div>
+
+        <!-- CONTACT US SECTION -->
+        <div id="contact" class="section">
+            <div class="card">
+                <h3>Contact Us</h3>
+                <p>Have questions, feedback, or want to connect? Reach out through the channels below:</p>
+                <p><strong>Email:</strong> spectrumofmedics@gmail.com</p>
+                <p><strong>Phone:</strong> +254 726 991 576</p>
+                <p><strong>Location:</strong> Kenya</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("mySidebar");
+            const overlay = document.getElementById("overlay");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+                overlay.style.display = "none";
+            } else {
+                sidebar.style.width = "250px";
+                overlay.style.display = "block";
+            }
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            toggleSidebar();
+        }
+    </script>
+</body>
+</html>
